@@ -30,9 +30,9 @@ func Websocket(app *gin.Context) {
 	for {
 		_, data, err := conn.ReadMessage()
 		if err != nil {
-			log.Println("ac: ", err)
+			log.Println(conn.LocalAddr(), "设备断开连接")
 			return
 		}
-		log.Println(data)
+		log.Println(string(data))
 	}
 }
